@@ -13,7 +13,7 @@ class CreateCustomerStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('customers_status', function (Blueprint $table) {
+        Schema::create('customer_status', function (Blueprint $table) {
             $table->increments('id');
             $table->string('status');
         });

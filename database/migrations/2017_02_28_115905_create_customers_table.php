@@ -13,13 +13,15 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('customer', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('surname');
             $table->string('phone');
             $table->integer('status_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('status_id')->references('id')->on('customer_status')->onDelete('cascade');
         });
     }
 
@@ -30,6 +32,6 @@ class CreateCustomersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('customers');
+        Schema::drop('customer');
     }
 }
