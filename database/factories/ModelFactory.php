@@ -11,11 +11,14 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Customer::class, function (Faker\Generator $faker) {
+    $date = $faker->dateTimeBetween('-1 year');
     return [
         'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'surname' => $faker->lastName,
+        'phone' => $faker->phoneNumber,
+        'status_id' => $faker->randomElement([1, 2, 3, 4]),
+        'created_at' => $date,
+        'updated_at' => $date,
     ];
 });
