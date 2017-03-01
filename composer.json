@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "killbond/test_conversion",
+    "description": "",
+    "keywords": [],
     "license": "MIT",
     "type": "project",
     "require": {
