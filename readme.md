@@ -5,6 +5,7 @@ A Laravel app built with AngularJS. For demonstration a chart of conversion on r
 ## Requirements
 
 - PHP 5.5.9 or later
+- mysql 5.5 or later
 - mbstring (PHP module)
 - composer
 
