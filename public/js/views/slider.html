@@ -1,0 +1,9 @@
+<div class="slider__buttons">
+    <button class="btn btn-primary" ng-click="update()" ng-disabled="loading">Update chart</button>
+    <button class="btn btn-default" ng-click="add()" ng-disabled="loading">Add range</button>
+    <button class="btn btn-default" ng-click="delete()" ng-disabled="options.start.length <= 2 || loading">Delete range</button>
+    <button class="btn btn-default" ng-click="weeks()" ng-disabled="loading">By weeks</button>
+    <button class="btn btn-default" ng-click="months()" ng-disabled="loading">By months</button>
+    <button class="btn btn-default" ng-click="reset()" ng-disabled="loading">Reset</button>
+</div>
+<div ya-no-ui-slider="options" ya-no-ui-slider-events="eventHandlers" ya-no-ui-slider-disabled="loading" class="slider__input"></div>

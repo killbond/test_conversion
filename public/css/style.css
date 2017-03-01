@@ -1,0 +1,62 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: table;
+    font-weight: 100;
+}
+
+.container {
+    text-align: center;
+    display: table-cell;
+    padding: 5% 0 0;
+}
+
+.content {
+    text-align: center;
+    display: inline-block;
+    width: 90%;
+}
+
+.slider {
+    margin-bottom: 100px;
+}
+
+.slider__buttons {
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.noUi-horizontal .noUi-tooltip {
+    white-space: nowrap;
+}
+
+.noUi-value {
+    padding: 6px 0 0;
+}
+
+.noUi-horizontal {
+    margin: 0 15px 0;
+}
+
+.slider .noUi-tooltip {
+    -webkit-transition: opacity 0.2s linear;
+    -moz-transition: opacity 0.2s linear;
+    -ms-transition: opacity 0.2s linear;
+    -o-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
+    opacity: 0;
+}
+
+.slider.slider_slide .noUi-tooltip {
+    opacity: 1;
+}
+
+.chart {
+    width: 88%;
+    height: 60%;
+}

@@ -14,3 +14,8 @@ use \Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'MainController@index');
+Route::get('/data', 'MainController@data');
+Route::get('/weeks', 'MainController@weeks');
+Route::get('/months', 'MainController@months');
+
+Route::get('/slider/range', 'SliderController@range');
