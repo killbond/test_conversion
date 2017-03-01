@@ -12,12 +12,10 @@ class SliderController extends Controller
 {
     public function range()
     {
-        $first = Customer::orderBy('created_at')
-            ->first();
-
+        $range = Customer::range();
         return response()->json([
-            'start' => $first->created_at->timestamp,
-            'end' => Carbon::now()->timestamp
+            'start' => $range['start']->timestamp,
+            'end' => $range['end']->timestamp
         ]);
     }
 }

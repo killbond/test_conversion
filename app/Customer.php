@@ -99,14 +99,14 @@ class Customer extends Model
             )->groupBy(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"))
             ->groupBy('status_id')
             ->where('created_at', '>=', $range['start']->modify('first day of next month')->startOfDay())
-            ->where('created_at', '<=', $range['end']->modify('last day of previous month')->endOfDay())
+            ->where('created_at', '<=', $range['end']->modify('last day of previous month')->startOfDay())
             ->get();
 
         return self::prepare($rows, function($month) {
             $date = Carbon::createFromFormat('Y-m', $month);
             return [
                 'start' => $date->modify('first day of this month')->startOfDay()->timestamp,
-                'end' => $date->modify('last day of this month')->endOfDay()->timestamp,
+                'end' => $date->modify('last day of this month')->startOfDay()->timestamp,
                 'value' => 0
             ];
         });
@@ -122,8 +122,8 @@ class Customer extends Model
             DB::raw('count(id) count')
         )->groupBy(DB::raw("CONCAT(YEAR(created_at), '-', WEEK(created_at))"))
             ->groupBy('status_id')
-            ->where('created_at', '>=', $range['start']->modify('first day of next week')->startOfDay())
-            ->where('created_at', '<=', $range['end']->modify('last day of previous week')->endOfDay())
+            ->where('created_at', '>=', $range['start']->modify('monday this week')->startOfDay())
+            ->where('created_at', '<=', $range['end']->modify('sunday this week')->startOfDay())
             ->get();
 
         return self::prepare($rows, function($date) {
@@ -132,7 +132,7 @@ class Customer extends Model
             $date->setISODate($year, $week);
             return [
                 'start' => $date->modify('monday this week')->startOfDay()->timestamp,
-                'end' => $date->modify('sunday this week')->endOfDay()->timestamp,
+                'end' => $date->modify('sunday this week')->startOfDay()->timestamp,
                 'value' => 0
             ];
         });
